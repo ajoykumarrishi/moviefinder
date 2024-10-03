@@ -32,6 +32,7 @@ function Home() {
             <a
               href={`https://www.imdb.com/title/${movie.imdbID}`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               IMDB
             </a>

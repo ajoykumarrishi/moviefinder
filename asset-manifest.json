@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-movie-finder-2/static/css/main.a510e86e.css",
+    "main.js": "/react-movie-finder-2/static/js/main.8f2a5ef1.js",
+    "index.html": "/react-movie-finder-2/index.html",
+    "main.a510e86e.css.map": "/react-movie-finder-2/static/css/main.a510e86e.css.map",
+    "main.8f2a5ef1.js.map": "/react-movie-finder-2/static/js/main.8f2a5ef1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a510e86e.css",
+    "static/js/main.8f2a5ef1.js"
+  ]
+}

@@ -14,12 +14,19 @@ function response(API_ENDPOINT, purpose) {
     });
 }
 
-export async function fetchSpecificMovie(movieTitle) {
+export async function fetchSpecificMovie(movieID, plot = "full") {
   try {
-    return await response(
-      `&t=${encodeURIComponent(movieTitle)}&plot=full`,
-      `fetch: ${movieTitle}`
-    );
+    if (plot === "full") {
+      return await response(
+        `&i=${encodeURIComponent(movieID)}&plot=full`,
+        `fetch: ${movieID}`
+      );
+    } else {
+      return await response(
+        `&i=${encodeURIComponent(movieID)}`,
+        `fetch: ${movieID}`
+      );
+    }
   } catch (error) {
     throw new Error("Error:", error);
   }

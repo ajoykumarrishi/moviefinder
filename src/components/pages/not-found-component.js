@@ -6,12 +6,9 @@ function NotFound() {
       <p className="text-muted-foreground">
         Sorry, the page you are looking for does not exist.
       </p>
-      <a
-        href="/"
-        className="inline-block mt-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2 rounded-md hover:from-primary/90 hover:to-primary/70 transition-colors"
-      >
-        Go Home
-      </a>
+      <span className="inline-block mt-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-4 py-2 rounded-md hover:from-primary/90 hover:to-primary/70 transition-colors">
+        <a href="/react-movie-finder-2">Go Home</a>
+      </span>
     </div>
   );
 }

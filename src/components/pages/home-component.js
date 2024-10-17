@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   fetchMoviesBySearch,
   fetchSpecificMovie,
@@ -17,7 +18,7 @@ function Home() {
       const result = await fetchMoviesBySearch(userInput);
       const moviesWithPlots = await Promise.all(
         result.Search.map(async (movie) => {
-          const fullDetails = await fetchSpecificMovie(movie.Title);
+          const fullDetails = await fetchSpecificMovie(movie.imdbID, "short");
           return { ...movie, Plot: fullDetails.Plot };
         })
       );
@@ -73,16 +74,23 @@ function Home() {
                 key={movie.imdbID}
                 className="bg-gradient-to-br from-card to-card/90 rounded-lg overflow-hidden shadow-md flex border border-border"
               >
-                <img
-                  src={movie.Poster}
-                  alt={movie.Title}
+                <Link
+                  to={`/movie/${movie.imdbID}`}
                   className="w-1/3 object-cover"
-                />
+                >
+                  <img
+                    src={movie.Poster}
+                    alt={movie.Title}
+                    className="w-full h-full object-fill"
+                  />
+                </Link>
                 <div className="p-4 w-2/3 flex flex-col justify-between">
                   <div>
-                    <h2 className="font-semibold text-xl mb-2">
-                      {movie.Title}
-                    </h2>
+                    <Link to={`/movie/${movie.imdbID}`}>
+                      <h2 className="font-semibold text-xl mb-2">
+                        {movie.Title}
+                      </h2>
+                    </Link>
                     <p className="text-muted-foreground mb-2">{movie.Year}</p>
                     <div className="bg-black/20 rounded-lg py-3 mb-3">
                       <p className="text-sm italic">
@@ -90,14 +98,15 @@ function Home() {
                       </p>
                     </div>
                   </div>
-                  <a
-                    href={`https://www.imdb.com/title/${movie.imdbID}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-3 py-2 rounded-md hover:from-primary/90 hover:to-primary/70 transition-colors text-center"
-                  >
-                    View on IMDB
-                  </a>
+                  <span className="block w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-3 py-2 rounded-md hover:from-primary/90 hover:to-primary/70 transition-colors text-center">
+                    <a
+                      href={`https://www.imdb.com/title/${movie.imdbID}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on IMDB
+                    </a>
+                  </span>
                 </div>
               </li>
             ))}

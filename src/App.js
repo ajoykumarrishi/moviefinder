@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Home from "./components/pages/home-component.js";
 import Movie from "./components/pages/movie-component.js";
 import NotFound from "./components/pages/not-found-component.js";
@@ -17,7 +12,7 @@ function App() {
         <main className="flex-grow pt-16 pb-10">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/movie/" element={<Movie />} />
+            <Route path="/movie/:id" element={<Movie />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -34,7 +29,7 @@ function Header() {
         <nav className="flex justify-center">
           <ul className="flex space-x-8">
             <li>
-              <NavLink
+              <Link
                 to="/"
                 className={({ isActive }) =>
                   `text-primary hover:text-primary/80 transition-colors transform hover:scale-105 ${
@@ -42,20 +37,8 @@ function Header() {
                   }`
                 }
               >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/movie/"
-                className={({ isActive }) =>
-                  `text-primary hover:text-primary/80 transition-colors transform hover:scale-105 ${
-                    isActive ? "font-bold border-b-2 border-primary" : ""
-                  }`
-                }
-              >
-                Movie
-              </NavLink>
+                MovieFinder
+              </Link>
             </li>
           </ul>
         </nav>

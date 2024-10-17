@@ -1,5 +1,5 @@
 const BASE_URL = "https://www.omdbapi.com/?";
-const API_KEY = `&apikey=c71d260`;
+const API_KEY = `&apikey=${process.env.REACT_APP_API_KEY}`;
 
 function response(API_ENDPOINT, purpose) {
   return fetch(`${BASE_URL}${API_ENDPOINT}${API_KEY}`)

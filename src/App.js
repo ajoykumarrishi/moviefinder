@@ -6,7 +6,7 @@ import NotFound from "./components/pages/not-found-component.js";
 
 function App() {
   return (
-    <Router basename="/react-movie-finder-2">
+    <Router basename={process.env.PUBLIC_URL || "/"}>
       <div className="min-h-screen bg-background text-foreground flex flex-col">
         <Header />
         <main className="flex-grow pt-16 pb-10">
